@@ -1,0 +1,81 @@
+ private static string GetFunctionNamesReplaceLoop(string functionNames)
+        {
+            if (!functionNames.Contains(";"))
+            {
+                return functionNames;
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                string[] functionArray = functionNames.Split(';');
+                for(int i=0;i<functionArray.Length;i++)
+                {
+                    if (functionArray[i].Contains("SpeedDevelopTool.<>c__DisplayClass"))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        sb.Append(functionArray[i]+";");
+                    }
+                 }
+
+                return sb.ToString().TrimEnd(';');
+            }
+        }
+
+		targetFramework一定要是统一的3.5
+
+		获取最新文件的地方改了lastwritetime
+
+		编译文件的地方改了 "Degbu|x86
+
+
+
+		contents = contents.Replace("\r\n", "").Replace("\t", "").Replace(" ", "").Replace("\r", "").Replace("\n", "");
+                            string myPattern = (accessModifiler + returnType + functionName + "(objectsender,EventArgse)" + sb.ToString()).Replace("\r\n", "").Replace("\t", "").Replace(" ", "").Replace("\r", "").Replace("\n", "");
+                            sourceCodes=sourceCodes.Replace("\r\n", "").Replace("\t", "").Replace(" ", "").Replace("\r", "").Replace("\n", "");
+                            return contents.Replace(myPattern, sourceCodes);
+
+							代码替换部分的修改
+
+							恢复默认情况的时候需要将修改文件夹也恢复到原始情况
+
+
+
+							private bool CompileReplaceAndInit(string sourceName)
+        {
+            try
+            {
+                //重新编译sourceName文件夹下的解决方案
+                string categoryPath = Config.GetValueByKey(this.choiceOpiton, "categoryPath");
+
+                List<FileInfo> fileInfo = CommonLib.Common.GetAllFilesInDirectory(AppDomain.CurrentDomain.BaseDirectory + categoryPath + sourceName);
+                for (int i = 0; i < fileInfo.Count; i++)
+                {
+                    //找到第一个.sln文件(解决方案文件)
+                    if (fileInfo[i].Extension == ".sln")
+                    {
+                       bool compileresult= Common.CompileSolution(fileInfo[i].FullName);
+                        if (!compileresult)
+                        {
+                            MessageBox.Show("编译失败，请检查是否有语法错误");
+                            return false;
+                        }
+                    }
+                }
+
+				编译的修改
+
+
+//恢复默认，代码变为未修改
+            this.codeIsModified = false;
+
+			//每次重新启动程序，即mainform加载时，都应该将源码_修改同步为和源码相同的代码
+
+
+			不完美的地方：匹配源代码修改那块儿可能会有bug
+
+			每次重新加载功能演示区的时候需要对控件移除和释放清理内存
+
+
