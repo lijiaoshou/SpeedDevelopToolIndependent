@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{F57C4994
 		快速开发工具.txt = 快速开发工具.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWinform", "TestWinform\TestWinform.csproj", "{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,14 @@ Global
 		{7AB6EBE3-3529-495E-9E4E-8F57FAA33C96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7AB6EBE3-3529-495E-9E4E-8F57FAA33C96}.Release|x86.ActiveCfg = Release|Any CPU
 		{7AB6EBE3-3529-495E-9E4E-8F57FAA33C96}.Release|x86.Build.0 = Release|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Debug|x86.Build.0 = Debug|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Release|x86.ActiveCfg = Release|Any CPU
+		{CFABAB66-3AA4-435A-AC77-385DD9DBDB9C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

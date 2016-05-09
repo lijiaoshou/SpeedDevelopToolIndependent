@@ -120,7 +120,7 @@ namespace SpeedDevelopTool
         /// <param name="e"></param>
         private void MainForm1_Load(object sender, EventArgs e)
         {
-
+            string categoryPath = Config.GetValueByKey(this.choiceOpiton, "categoryPath");
             #region 初始化功能演示区
 
             #region old
@@ -213,48 +213,50 @@ namespace SpeedDevelopTool
             #endregion
 
             #region 初始化相关文档
-            string categoryPath = Config.GetValueByKey(this.choiceOpiton, "categoryPath");
-            //得到对应公共控件类别下的相关文档文件夹下的（包括子文件夹）的文件
-            List<FileInfo> fileInfo = CommonLib.Common.GetAllFilesInDirectory(AppDomain.CurrentDomain.BaseDirectory + categoryPath + @"相关文档");
-            for (int i = 0; i < fileInfo.Count; i++)
-            {
-                LinkLabel lab = new LinkLabel();
+            //string categoryPath = Config.GetValueByKey(this.choiceOpiton, "categoryPath");
+            ////得到对应公共控件类别下的相关文档文件夹下的（包括子文件夹）的文件
+            //List<FileInfo> fileInfo = CommonLib.Common.GetAllFilesInDirectory(AppDomain.CurrentDomain.BaseDirectory + categoryPath + @"相关文档");
+            //for (int i = 0; i < fileInfo.Count; i++)
+            //{
+            //    LinkLabel lab = new LinkLabel();
 
-                //展示样式设置
-                lab.Width = groupBox3.Width;
-                lab.Text = fileInfo[i].Name;
-                lab.ForeColor = Color.Blue;
-                lab.Left = 15;
-                lab.Top = lab.Height * i + 40;
+            //    //展示样式设置
+            //    lab.Width = groupBox3.Width;
+            //    lab.Text = fileInfo[i].Name;
+            //    lab.ForeColor = Color.Blue;
+            //    lab.Left = 15;
+            //    lab.Top = lab.Height * i + 40;
 
-                //给文字绑定点击时触发的委托方法
-                lab.Click += new EventHandler(StartProcessDoc);
+            //    //给文字绑定点击时触发的委托方法
+            //    lab.Click += new EventHandler(StartProcessDoc);
 
-                //将文档生成的可操作内容加载到父控件中
-                groupBox3.Controls.Add(lab);
-            }
+            //    //将文档生成的可操作内容加载到父控件中
+            //    groupBox3.Controls.Add(lab);
+            //}
+            webBrowser1.Navigate("http://u8dev.yonyou.com");
             #endregion
 
             #region 初始化常见问题
-            //得到对应公共空间类别下的常见问题文件夹下的（包括子文件夹）的文件
-            List<FileInfo> fileInfoP = CommonLib.Common.GetAllFilesInDirectory(System.Environment.CurrentDirectory + "\\" + categoryPath + @"常见问题");
-            for (int i = 0; i < fileInfoP.Count; i++)
-            {
-                LinkLabel lab = new LinkLabel();
+            ////得到对应公共空间类别下的常见问题文件夹下的（包括子文件夹）的文件
+            //List<FileInfo> fileInfoP = CommonLib.Common.GetAllFilesInDirectory(System.Environment.CurrentDirectory + "\\" + categoryPath + @"常见问题");
+            //for (int i = 0; i < fileInfoP.Count; i++)
+            //{
+            //    LinkLabel lab = new LinkLabel();
 
-                //展示样式设置
-                lab.Width = groupBox4.Width;
-                lab.Text = fileInfoP[i].Name;
-                lab.ForeColor = Color.Blue;
-                lab.Left = 15;
-                lab.Top = lab.Height * i + 40;
+            //    //展示样式设置
+            //    lab.Width = groupBox4.Width;
+            //    lab.Text = fileInfoP[i].Name;
+            //    lab.ForeColor = Color.Blue;
+            //    lab.Left = 15;
+            //    lab.Top = lab.Height * i + 40;
 
-                //给文字绑定点击时触发的委托方法
-                lab.Click += new EventHandler(StartProcessPro);
+            //    //给文字绑定点击时触发的委托方法
+            //    lab.Click += new EventHandler(StartProcessPro);
 
-                //将文档生成的可操作内容加载到父控件中
-                groupBox4.Controls.Add(lab);
-            }
+            //    //将文档生成的可操作内容加载到父控件中
+            //    groupBox4.Controls.Add(lab);
+            //}
+            webBrowser2.Navigate("http://u8dev.yonyou.com");
             #endregion
 
             #region 初始化代码控件
@@ -736,5 +738,35 @@ namespace SpeedDevelopTool
             }
         }
 
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            webBrowser1.GoBack();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            webBrowser1.GoForward();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            webBrowser2.GoBack();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            webBrowser2.GoForward();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Refresh();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            webBrowser2.Refresh();
+        }
     }
 }
