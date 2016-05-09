@@ -279,7 +279,7 @@ namespace SpeedDevelopTool
             Common.copyDirectory(AppDomain.CurrentDomain.BaseDirectory+ categoryPath+"源码", AppDomain.CurrentDomain.BaseDirectory + categoryPath + "源码_修改");
             #endregion
 
-            #region
+            #region 初始化DEMO的dll或者exe
             string dllName = Config.GetValueByKey(this.choiceOpiton, "dllName");
             string basePath = AppDomain.CurrentDomain.BaseDirectory + categoryPath;
             File.Copy(basePath + @"\backup\" + dllName, basePath + dllName,true);
