@@ -120,6 +120,8 @@ namespace SpeedDevelopTool
         /// <param name="e"></param>
         private void MainForm1_Load(object sender, EventArgs e)
         {
+            Middle.sendEvent += new Middle.SendMessage(this.DoMethod);
+
             string categoryPath = Config.GetValueByKey(this.choiceOpiton, "categoryPath");
             #region 初始化功能演示区
 
@@ -234,6 +236,9 @@ namespace SpeedDevelopTool
             //    groupBox3.Controls.Add(lab);
             //}
             webBrowser1.Navigate("http://u8dev.yonyou.com");
+            //this.groupBox3.MouseLeave += new EventHandler(GroupBox3MouseMoveOut);
+            
+            //this.groupBox3.MouseEnter += new EventHandler(GroupBox3MouseMoveIn);
             #endregion
 
             #region 初始化常见问题
@@ -257,6 +262,9 @@ namespace SpeedDevelopTool
             //    groupBox4.Controls.Add(lab);
             //}
             webBrowser2.Navigate("http://u8dev.yonyou.com");
+            //this.groupBox4.MouseLeave += new EventHandler(GroupBox4MouseMoveOut);
+
+            //this.groupBox4.MouseEnter += new EventHandler(GroupBox4MouseMoveIn);
             #endregion
 
             #region 初始化代码控件
@@ -768,5 +776,123 @@ namespace SpeedDevelopTool
         {
             webBrowser2.Refresh();
         }
+
+        private void GroupBox3MouseMoveIn(object sender, EventArgs e)
+        {
+
+            this.groupBox1.Width -= 400;
+            this.groupBox3.Left -= 400;
+            this.groupBox3.Width += 400;
+            this.webBrowser1.Width += 400;
+
+            this.webBrowser1.Document.MouseOver -= new HtmlElementEventHandler(GroupBox3MouseMoveIn);
+            this.webBrowser1.Document.MouseLeave += new HtmlElementEventHandler(GroupBox3MouseMoveOut);
+        }
+
+        private void GroupBox3MouseMoveOut(object sender, EventArgs e)
+        {
+
+            if (groupBox2.Bounds.Contains(this.PointToClient(Cursor.Position)) || groupBox1.Bounds.Contains(this.PointToClient(Cursor.Position)))
+            {
+                this.groupBox1.Width += 400;
+                this.groupBox3.Left += 400;
+                this.groupBox3.Width -= 400;
+                this.webBrowser1.Width -= 400;
+                this.webBrowser1.Document.MouseOver += new HtmlElementEventHandler(GroupBox3MouseMoveIn);
+                this.webBrowser1.Document.MouseLeave -= new HtmlElementEventHandler(GroupBox3MouseMoveOut);
+            }
+
+        }
+
+        private void GroupBox4MouseMoveIn(object sender, EventArgs e)
+        {
+            this.groupBox2.Width -= 400;
+            this.groupBox4.Left -= 400;
+            this.groupBox4.Width += 400;
+            this.webBrowser2.Width += 400;
+            //File.AppendAllText("F:\\test.txt","in"+ "\r\n");
+
+            this.webBrowser2.Document.MouseOver -= new HtmlElementEventHandler(GroupBox4MouseMoveIn);
+            this.webBrowser2.Document.MouseLeave += new HtmlElementEventHandler(GroupBox4MouseMoveOut);
+        }
+
+        private void GroupBox4MouseMoveOut(object sender, EventArgs e)
+        {
+            if (groupBox2.Bounds.Contains(this.PointToClient(Cursor.Position)) || groupBox1.Bounds.Contains(this.PointToClient(Cursor.Position)))
+            {
+                this.groupBox2.Width += 400;
+                this.groupBox4.Left += 400;
+                this.groupBox4.Width -= 400;
+                this.webBrowser2.Width -= 400;
+                this.webBrowser2.Document.MouseOver += new HtmlElementEventHandler(GroupBox4MouseMoveIn);
+                this.webBrowser2.Document.MouseLeave -= new HtmlElementEventHandler(GroupBox4MouseMoveOut);
+            }
+
+            //File.AppendAllText("F:\\test.txt", "out"+ "\r\n");
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            WebLogin loginFrm = new WebLogin("http://u8dev.yonyou.com/");
+            loginFrm.ShowDialog();
+
+            #region 重置布局
+
+            ////groupbox3
+            //groupBox3.Width = 245;
+            //groupBox3.Left = 686;
+
+            ////groupbox4
+            //groupBox4.Width = 245;
+            //groupBox4.Left = 686;
+
+            ////groupbox1
+            //groupBox1.Width = 660;
+
+            ////goupbox2
+            //groupBox2.Width = 660;
+
+            ////webbrowser1
+            //webBrowser1.Width = 233;
+
+            ////webbrowser2
+            //webBrowser2.Width = 233;
+
+            #endregion
+
+            #region webbrowser绑定事件
+
+            //this.webBrowser1.Document.MouseOver -= new HtmlElementEventHandler(GroupBox3MouseMoveIn);
+            //this.webBrowser2.Document.MouseOver -= new HtmlElementEventHandler(GroupBox4MouseMoveIn);
+
+            //this.webBrowser1.Document.MouseOver += new HtmlElementEventHandler(GroupBox3MouseMoveIn);
+            //this.webBrowser2.Document.MouseOver += new HtmlElementEventHandler(GroupBox4MouseMoveIn);
+            #endregion
+        }
+
+        public void DoMethod(string getstr)
+        {
+            this.webBrowser1.Navigate("http://u8dev.yonyou.com/home/Study/DocumentList.aspx?v=0&filter=%E6%A0%8F%E7%9B%AE");
+            this.webBrowser2.Navigate("http://u8dev.yonyou.com/home/ask/index.aspx?r=iszhishi&v=0");
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            WebLogin loginFrm = new WebLogin("http://u8dev.yonyou.com/register.aspx");
+
+            loginFrm.ShowDialog();
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            this.webBrowser1.Document.MouseOver += new HtmlElementEventHandler(GroupBox3MouseMoveIn);
+        }
+
+        private void webBrowser2_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            this.webBrowser2.Document.MouseOver += new HtmlElementEventHandler(GroupBox4MouseMoveIn);
+        }
+
     }
 }

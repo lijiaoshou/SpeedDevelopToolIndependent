@@ -1,4 +1,6 @@
-﻿namespace SpeedDevelopTool
+﻿using System.Windows.Forms;
+
+namespace SpeedDevelopTool
 {
     partial class MainForm
     {
@@ -35,6 +37,8 @@
             this.button10 = new System.Windows.Forms.Button();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -112,9 +116,12 @@
             this.webBrowser2.Name = "webBrowser2";
             this.webBrowser2.Size = new System.Drawing.Size(233, 300);
             this.webBrowser2.TabIndex = 3;
+            this.webBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser2_DocumentCompleted);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button14);
+            this.groupBox3.Controls.Add(this.button13);
             this.groupBox3.Controls.Add(this.button11);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.button7);
@@ -126,9 +133,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "相关文档";
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(196, 17);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(43, 24);
+            this.button14.TabIndex = 6;
+            this.button14.Text = "注册";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(146, 17);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(49, 24);
+            this.button13.TabIndex = 5;
+            this.button13.Text = "登录";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(161, 17);
+            this.button11.Location = new System.Drawing.Point(97, 17);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(49, 24);
             this.button11.TabIndex = 3;
@@ -138,7 +165,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(85, 17);
+            this.button8.Location = new System.Drawing.Point(49, 17);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(49, 24);
             this.button8.TabIndex = 2;
@@ -148,7 +175,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(14, 17);
+            this.button7.Location = new System.Drawing.Point(1, 17);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(49, 24);
             this.button7.TabIndex = 1;
@@ -162,7 +189,8 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(233, 447);
-            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.TabIndex = 4;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // groupBox2
             // 
@@ -274,5 +302,7 @@
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
+        private Button button14;
+        private Button button13;
     }
 }

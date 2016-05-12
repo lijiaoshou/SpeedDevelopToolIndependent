@@ -20,6 +20,8 @@ namespace TestWinform
         private void Form2_Load(object sender, EventArgs e)
         {
             webBrowser1.Navigate("http://u8dev.yonyou.com/");
+
+            Middle.sendEvent += new Middle.SendMessage(this.DoMethod);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,6 +40,17 @@ namespace TestWinform
         private void button2_Click(object sender, EventArgs e)
         {
             webBrowser1.GoForward();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form3 frm = new Form3();
+            frm.Show();
+        }
+
+        public void DoMethod(string getstr)
+        {
+            MessageBox.Show(getstr);
         }
     }
 }
